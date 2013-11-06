@@ -23,8 +23,8 @@ class application
 	function __construct()
 	{
 		$this->getStartPath();
-		$this->systemPath = $this->startPath . "system";
-		$this->applicationPath = $this->startPath . "application";
+		$this->systemPath = $this->startPath . "/system/";
+		$this->applicationPath = $this->startPath . "/application/";
 	}
 
 	/*
@@ -35,7 +35,8 @@ class application
 	*/
 	protected function getStartPath()
 	{
-		$this->startPath = str_replace("\\", "/",pathinfo(__FILE__, PATHINFO_DIRNAME))  ;	
+		//$this->startPath = str_replace("\\", "/",pathinfo(__FILE__, PATHINFO_DIRNAME))  ;	
+		$this->startPath = realpath(dirname(__FILE__));
 	}
 	 
 
